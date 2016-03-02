@@ -183,6 +183,7 @@ void test_point_getsetelem(ErrorContext &ec, unsigned int numRuns) {
         }
     }
 }
+ 
 
 // Copy constructor
 void test_point_copying(ErrorContext &ec, unsigned int numRuns) {
@@ -228,6 +229,7 @@ void test_point_copying(ErrorContext &ec, unsigned int numRuns) {
         }
     }
 }
+
 
 // operator=
 void test_point_assignment(ErrorContext &ec, unsigned int numRuns) {
@@ -336,7 +338,7 @@ void test_point_equality(ErrorContext &ec, unsigned int numRuns) {
 
 // operator<, operator<=, operator>, operator>=
 // (pseudo-lexicographic comparison)
-void test_point_comparison(ErrorContext &ec, unsigned int numRuns) {
+/*void test_point_comparison(ErrorContext &ec, unsigned int numRuns) {
     bool pass;
 
     // Run at least once!!
@@ -1576,4 +1578,4 @@ void test_cluster_IO(ErrorContext &ec, unsigned int numRuns) {
             ec.result(pass);
         }
     }
-}
+}*/

@@ -5,10 +5,10 @@
 #ifndef CLUSTERING_ERRORCONTEXT_H
 #define CLUSTERING_ERRORCONTEXT_H
 
-
 /**
  * Acknowledgement: Donnie Pinkston, CALTECH
  */
+
 
 #include <iostream>
 #include <set>

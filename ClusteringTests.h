@@ -32,7 +32,7 @@ void test_point_equality(ErrorContext &ec, unsigned int numRuns);
 
 // operator<, operator<=, operator>, operator>=
 // (pseudo-lexicographic comparison)
-void test_point_comparison(ErrorContext &ec, unsigned int numRuns);
+/*void test_point_comparison(ErrorContext &ec, unsigned int numRuns);
 
 // operator+=, operator-=, operator*=, operator/=
 void test_point_CAO(ErrorContext &ec, unsigned int numRuns);
@@ -81,6 +81,6 @@ void test_cluster_CAO(ErrorContext &ec, unsigned int numRuns);
 void test_cluster_SAO(ErrorContext &ec, unsigned int numRuns);
 
 // operator>>, operator<<
-void test_cluster_IO(ErrorContext &ec, unsigned int numRuns);
+void test_cluster_IO(ErrorContext &ec, unsigned int numRuns);*/
 
 #endif //CLUSTERING_CLUSTERINGTESTS_H

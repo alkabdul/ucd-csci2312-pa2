@@ -2,6 +2,7 @@
 #define CLUSTERING_POINT_H
 
 #include <iostream>
+#include <math.h>
 
 namespace Clustering {
 
