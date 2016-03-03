@@ -38,26 +38,25 @@ void test_point_comparison(ErrorContext &ec, unsigned int numRuns);
 void test_point_CAO(ErrorContext &ec, unsigned int numRuns);
 
 // operator+, operator-, operator*, operator/
-/*void test_point_SAO(ErrorContext &ec, unsigned int numRuns);
+void test_point_SAO(ErrorContext &ec, unsigned int numRuns);
 
 // distanceTo
 void test_point_distance(ErrorContext &ec, unsigned int numRuns);
 
 // operator>>, operator<< (incl. exceptions)
-void test_point_IO(ErrorContext &ec, unsigned int numRuns);*/
-
+void test_point_IO(ErrorContext &ec, unsigned int numRuns);
 
 
 // - - - - - - - - - Tests: class Cluster - - - - - - - - - -
 
 // Smoketest: constructor, copy constructor, destructor
-//void test_cluster_smoketest(ErrorContext &ec);
+void test_cluster_smoketest(ErrorContext &ec);
 
 // add, remove
-/*void test_cluster_addremove(ErrorContext &ec, unsigned int numRuns);
+void test_cluster_addremove(ErrorContext &ec, unsigned int numRuns);
 
 // Containment
-void test_cluster_contain(ErrorContext &ec, unsigned int numRuns);
+/*(void test_cluster_contain(ErrorContext &ec, unsigned int numRuns);
 
 // Copy constructor
 void test_cluster_copying(ErrorContext &ec, unsigned int numRuns);

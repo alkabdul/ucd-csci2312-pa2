@@ -30,7 +30,7 @@ const Point point_in_and_out(const Point p) { return Point(p); }
 // - - - - - - - - - - P O I N T - - - - - - - - - -
 
 // Smoketest: constructor, copy constructor, destructor
-void test_point_smoketest(ErrorContext &ec) {
+/*void test_point_smoketest(ErrorContext &ec) {
     bool pass;
 
     ec.DESC("--- Test - Point - Smoketest ---");
@@ -589,7 +589,7 @@ void test_point_CAO(ErrorContext &ec, unsigned int numRuns) {
 }
 
 // operator+, operator-, operator*, operator/
-/*void test_point_SAO(ErrorContext &ec, unsigned int numRuns) {
+void test_point_SAO(ErrorContext &ec, unsigned int numRuns) {
     bool pass;
 
     // Run at least once!!
@@ -777,7 +777,7 @@ void test_point_IO(ErrorContext &ec, unsigned int numRuns) {
 // - - - - - - - - - - C L U S T E R - - - - - - - - - -
 
 // Smoketest: constructor, copy constructor, destructor
-/*void test_cluster_smoketest(ErrorContext &ec) {
+void test_cluster_smoketest(ErrorContext &ec) {
     bool pass;
 
     ec.DESC("--- Test - Cluster - Smoketest ---");
@@ -855,7 +855,7 @@ void test_cluster_addremove(ErrorContext &ec, unsigned int numRuns) {
             pass = (c1.getSize() == 0);
             if (!pass) {
                 std::cout << std::endl;
-                std::cout << c1 << std::endl;
+                //std::cout << c1 << std::endl;
                 std::cout << std::endl;
             }
 
@@ -899,7 +899,7 @@ void test_cluster_addremove(ErrorContext &ec, unsigned int numRuns) {
         }
     }
 }
-
+/*
 // Containment
 void test_cluster_contain(ErrorContext &ec, unsigned int numRuns) {
     bool pass;
