@@ -734,7 +734,7 @@ void test_point_distance(ErrorContext &ec, unsigned int numRuns) {
             ec.result(pass);
         }
     }
-}
+}*/
 
 // operator>>, operator<< (incl. exceptions)
 void test_point_IO(ErrorContext &ec, unsigned int numRuns) {
@@ -772,12 +772,12 @@ void test_point_IO(ErrorContext &ec, unsigned int numRuns) {
         }
     }
 }
-*/
+
 
 // - - - - - - - - - - C L U S T E R - - - - - - - - - -
 
 // Smoketest: constructor, copy constructor, destructor
-void test_cluster_smoketest(ErrorContext &ec) {
+/*void test_cluster_smoketest(ErrorContext &ec) {
     bool pass;
 
     ec.DESC("--- Test - Cluster - Smoketest ---");
@@ -899,7 +899,7 @@ void test_cluster_addremove(ErrorContext &ec, unsigned int numRuns) {
         }
     }
 }
-/*
+
 // Containment
 void test_cluster_contain(ErrorContext &ec, unsigned int numRuns) {
     bool pass;

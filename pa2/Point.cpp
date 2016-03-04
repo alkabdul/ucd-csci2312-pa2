@@ -351,17 +351,30 @@ bool Clustering::operator>=(const Point& p1, const Point& p2){
 
 std::ostream& Clustering::operator<<(std::ostream& os, const Point& pt){
     
-    for(int i = 0; i<pt.getDims()-1; i++)
+    /*for(int i = 0; i<pt.getDims()-1; i++)
     {
         os<<pt.__values[i]<<", ";
         
     }
     os<<pt.__values [pt.getDims()-1];
 
+    return os;*/
+    
+    if (pt.getDims() != 0) {
+        for (int i = 0; i < pt.getDims() - 1; i++) {
+            os << pt.__values[i];
+            os << ", ";
+        }
+        os << pt.__values[pt.getDims() - 1];
+    }
+    else {
+        os<< 0;
+    }
     return os;
 }
 std::istream& Clustering::operator>>(std::istream& is, Point& pt){
-    std:: string pointsList;
+   const char POINT_VALUE_DELIM = ',';
+    /* std:: string pointsList;
     std::vector<double> vect;
     
     std::stringstream ss(pointsList);
@@ -381,6 +394,13 @@ std::istream& Clustering::operator>>(std::istream& is, Point& pt){
 
     
     
+    return is;*/
+    for(int i = 0; i < pt.getDims(); i++){
+        // chose for() instead of while to avoid over-filling point
+        std::string line;
+        std::getline(is, line, POINT_VALUE_DELIM);
+        pt.setValue(i, atof(line.c_str()));
+    }
     return is;
 }
 
