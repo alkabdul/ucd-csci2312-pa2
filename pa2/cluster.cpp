@@ -11,14 +11,29 @@
 
 using namespace Clustering;
 
+
 /**
  * Default constructor
  */
 Cluster::Cluster(){
     __size = 0;
+    __points = nullptr;
+    
     
 }
+Clustering::LNode::LNode():
+next(),
+point(){};
+
+
+
+
 //constructor LNode
+Clustering::LNode::LNode(const Point &p, LNodePtr n):
+next (n),
+point (p){};
+
+
 
 
 /**
@@ -28,11 +43,16 @@ Cluster::Cluster(){
 
 Cluster::Cluster(const Cluster& diffCluster){
     __size=diffCluster.__size;
-    __points=diffCluster.__points;
+    LNode *tempValues = new LNode [diffCluster.getSize()];
+    for (int i = 0; i < diffCluster.getSize(); i ++)
+        tempValues[i] = diffCluster.__points[i];
+    __points = tempValues;
+    
     
     
     
 }
+
 
 /**
  * Override the assignment operator
@@ -46,10 +66,18 @@ Cluster& Cluster::operator=(const Cluster &otherCluster){
     return *this;
     
 }
+
 /**
  * Destructor
  */
 Cluster::~Cluster(){
+    //    LNodePtr current;
+    //    while (__points != nullptr) {
+    //        current = __points;
+    //        __points = current->next;
+    //
+    //        delete current;
+    //    }
     
 }
 
@@ -92,35 +120,25 @@ bool Clustering::operator==(const Cluster& c1, const Cluster& c2){
 }
 
 void Cluster::add(const Point& p1){
-    //    /* The list is empty? */
-    //    pHead
-    //    if (_pHead == NULL) {
-    //        /* the same to create a new list with a given value */
-    //        _pTail = _pHead = new Node(val);
-    //    }
-    //    else
-    //    {
-    //        /* Append the new node to the tail */
-    //        _pTail->_pNext = new Node(val);
-    //        /* Update the tail pointer */
-    //        _pTail = _pTail->_pNext;
-    //    }
-    // call copy constructor for point
-    Point *p2 = new Point(p1);
-    // create LNode
-    LNode *newNode = new LNode (*p2,__points);
+    std::cout<< "after add"<<std::endl;
+    LNodePtr newNode = new LNode (p1, __points);
+    printf("%p\n", &__points);
     if ( __points != NULL)
     {
+        printf("HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\n\n\n\n\n\n\n\n");
+        std::cout<< getSize() <<std::endl;
         // append LNode to our points list
-        LNode prevNode = __points[getSize()-1];
-        prevNode.next = newNode;
-        
+        LNodePtr prevNode = new LNode (__points[getSize()-1]);
+        std::cout<< "after prevnod assignment"<<std::endl;
+        prevNode->next = newNode;
+        std::cout<< "after prevnod next"<<std::endl;
         
     }
     else {
         __points = newNode;
         
     }
+    
     // set our next node to be null
     newNode->next = NULL;
     
@@ -129,25 +147,31 @@ void Cluster::add(const Point& p1){
     
 }
 const Point& Cluster ::remove(const Point& p1){
-    LNode *current = &__points[0];
-    LNode *next = current->next;
-    //LNode *first = current;
-    while (next != NULL) {
+    std::cout<< "after remove\n\n\n"<<std::endl;
+    if ( __points) {
+        LNodePtr current = __points;
+        LNodePtr next = current->next;
+        //LNode *first = current;
+        while (next != NULL) {
+            
+            if (next->point == p1){
+                //de-attach point from our link list
+                delete next;
+                // --__size;
+                next = current->next;
+            }
+            else {
+                current = next;
+                next = next->next;
+            }
+        }
         
-        if (next->point == p1){
-            //de-attach point from our link list
-            delete next;
-            next = current->next;
-        }
-        else {
-            current = next;
-            next = next->next;
-        }
+        return p1;
     }
-    
-    
+    __size--;
     return p1;
 }
+
 
 
 /*
